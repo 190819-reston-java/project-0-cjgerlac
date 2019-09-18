@@ -8,7 +8,7 @@ public class NoNegativeBalanceException extends RuntimeException {
 
 	public NoNegativeBalanceException() {
 		this("You are attempting to withdraw more money than what is available in your account!");
-		logger.trace("User attempted to withdraw more money than funds available.");
+		logger.error("User attempted to withdraw more money than funds available.");
 	}
 
 	public NoNegativeBalanceException(String errorMessage) {

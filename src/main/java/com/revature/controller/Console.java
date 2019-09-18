@@ -16,11 +16,14 @@ public class Console {
 		boolean authenticated = false;
 
 		while (authenticated == false) {
-			Arrays.asList("Welcome to the banking app!", "Please input your account name:", "").forEach((String s) -> {
+			Arrays.asList("Welcome to the banking app!", "Please input your account name", "or type exit to exit", "").forEach((String s) -> {
 				System.out.println(s);
 			});
 
 			String userInput = sc.nextLine();
+			if (userInput.equals("exit")) {
+				System.exit(0);
+			}
 			if (servicio.verifyUserId(userInput) == true) {
 				authenticated = true;
 				servicio.setU(servicio.getUserDAO().getUser(userInput));
@@ -43,11 +46,12 @@ public class Console {
 				authenticated = true;
 			}
 		}
+		System.out.println("Successfully logged in!");
 		menu(u);
 	}
 
 	public static void menu(User u) {
-		Arrays.asList("Successfully logged in!", "Type 1 to check your balance.", "Type 2 to make a deposit.",
+		Arrays.asList("Type 1 to check your balance.", "Type 2 to make a deposit.",
 				"Type 3 to make a withdrawal.", "Type 4 to logout.", "").forEach((String s) -> {
 					System.out.println(s);
 				});

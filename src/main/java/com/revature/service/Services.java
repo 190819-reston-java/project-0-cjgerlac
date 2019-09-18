@@ -50,7 +50,7 @@ public class Services {
 		try {
 			Double deposit = Double.valueOf(depositInput);
 			if (deposit < 0) {
-				logger.warn("No negative deposits!");
+				logger.error("No negative deposits!");
 			} else {
 				if (getUserDAO().updateUser(getU(), deposit) == true) {
 					System.out.println("Successful deposit!");
@@ -66,7 +66,7 @@ public class Services {
 		try {
 			Double withdrawal = Double.valueOf(withdrawalAmount);
 			if (withdrawal > 0) {
-				logger.warn("Put in a negative withdrawal amount!");
+				logger.error("Put in a negative withdrawal amount!");
 			} else {
 				if (getUserDAO().updateUser(getU(), withdrawal) == true) {
 					System.out.println("Successful withdrawal!");
@@ -74,7 +74,7 @@ public class Services {
 				}
 			}
 		} catch (NumberFormatException e) {
-			logger.warn("Input was not a number!");
+			logger.error("Input was not a number!");
 		}
 	}
 

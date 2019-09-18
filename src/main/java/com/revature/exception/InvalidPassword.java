@@ -8,7 +8,7 @@ public class InvalidPassword extends RuntimeException {
 
 	public InvalidPassword(String message) {
 		super(message);
-		logger.trace("Invalid password attempt.");
+		logger.warn("Invalid password attempt.");
 	}
 
 	public InvalidPassword() {
