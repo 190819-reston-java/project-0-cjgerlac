@@ -8,7 +8,7 @@ public class InvalidLogin extends RuntimeException {
 
 	public InvalidLogin(String message) {
 		super(message);
-		logger.warn("Invalid login attempt.");
+		logger.error("Invalid login attempt.");
 	}
 
 	public InvalidLogin() {
